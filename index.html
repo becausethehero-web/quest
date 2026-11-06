@@ -92,26 +92,36 @@
   },
   "11": {
     "title": "Операция завершена",
-    "text": "Все контрольные точки пройдены.\n\nВсе испытания успешно преодолены.\n\nСекретный груз обнаружен.\n\nПоздравляем! Ты официально доказал, что способен найти что угодно, даже если тебе не говорят, где искать.\n\nНаграда твоя.\n\nP.S. Надеюсь, оно того стоило ❤️"
+    "text": "ОПЕРАЦИЯ ЗАВЕРШЕНА.\n\nВсе контрольные точки пройдены.\nВсе испытания успешно преодолены.\n\nСекретный груз обнаружен.\n\nПоздравляем! Ты официально доказал, что способен найти что угодно, даже если тебе не говорят, где искать.\n\nНаграда твоя.\n\nP.S. Надеюсь, оно того стоило ❤️"
   }
 };
 
-    const id = window.location.hash.slice(1);
     const page = document.getElementById("page");
     const heading = document.getElementById("heading");
     const message = document.getElementById("message");
     const footer = document.getElementById("footer");
-    const item = QUEST[id];
 
-    if (item) {
-      heading.textContent = item.title;
-      message.textContent = item.text;
-    } else {
-      page.classList.add("error");
-      heading.textContent = "Сообщение не найдено";
-      message.textContent = "Проверьте QR-код или адрес ссылки. В конце адреса должна быть цифра от 0 до 11.";
-      footer.textContent = "Доступ отсутствует";
+    function showMessage() {
+      const id = window.location.hash.slice(1);
+      const item = QUEST[id];
+
+      page.classList.remove("error");
+
+      if (item) {
+        heading.textContent = item.title;
+        message.textContent = item.text;
+        footer.textContent = "Материал предназначен только для адресата";
+      } else {
+        page.classList.add("error");
+        heading.textContent = "Сообщение не найдено";
+        message.textContent = "Проверьте QR-код или адрес ссылки. В конце адреса должна быть цифра от 0 до 11.";
+        footer.textContent = "Доступ отсутствует";
+      }
     }
+
+    // Обновляем послание, даже если браузер уже открыт и меняется только #номер.
+    showMessage();
+    window.addEventListener("hashchange", showMessage);
   </script>
 </body>
 </html>
