@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111111">
+  <title>Секретное послание</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #111;
+      --panel: #1b1b1b;
+      --text: #eee;
+      --muted: #a6a6a6;
+      --accent: #c8b98b;
+      --line: #48443a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      padding: 28px 18px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(ellipse at center, #25231f 0%, var(--background) 72%);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    main {
+      width: 100%;
+      max-width: 560px;
+      padding: 30px 24px;
+      border: 1px solid var(--line);
+      background: rgba(20, 20, 20, 0.94);
+      box-shadow: 0 12px 45px rgba(0, 0, 0, .35);
+      text-align: center;
+    }
+
+    .classification {
+      margin: 0 0 26px;
+      color: var(--accent);
+      font: 11px/1.5 Arial, sans-serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .divider {
+      width: 54px;
+      height: 1px;
+      margin: 22px auto;
+      background: var(--accent);
+      opacity: .75;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--accent);
+      font-size: clamp(23px, 6vw, 31px);
+      font-weight: normal;
+      line-height: 1.25;
+    }
+
+    .message {
+      margin: 24px 0 8px;
+      font-size: clamp(18px, 4.8vw, 22px);
+      line-height: 1.65;
+      white-space: pre-line;
+      overflow-wrap: anywhere;
+    }
+
+    .footer {
+      margin: 30px 0 0;
+      color: var(--muted);
+      font: 10px/1.5 Arial, sans-serif;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .error h1 { color: #ddd; }
+    .error .message { color: var(--muted); font-size: 17px; }
+
+    @media (max-width: 360px) {
+      main { padding: 25px 17px; }
+    }
+  </style>
+</head>
+<body>
+  <main id="page">
+    <p class="classification">Закрытый архив · Доступ по приглашению</p>
+    <div class="divider"></div>
+    <h1 id="heading">Секретное послание</h1>
+    <p class="message" id="message">Загрузка сообщения…</p>
+    <div class="divider"></div>
+    <p class="footer" id="footer">Материал предназначен только для адресата</p>
+  </main>
+
+  <script>
+    /*
+      КАК ДОБАВЛЯТЬ ИЛИ МЕНЯТЬ ЗАГАДКИ:
+      1. Найдите ниже блок QUEST.
+      2. Замените текст в кавычках у title и text.
+      3. Не меняйте цифры 1, 2, 3, 4, 5 — они используются в QR-ссылках.
+      4. Перенос строки внутри текста можно обозначить как \n.
+    */
+
+    const QUEST = {
+      "1": {
+        title: "Послание № 1",
+        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ПЕРВОЙ ЗАГАДКОЙ"
+      },
+      "2": {
+        title: "Послание № 2",
+        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ВТОРОЙ ЗАГАДКОЙ"
+      },
+      "3": {
+        title: "Послание № 3",
+        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ТРЕТЬЕЙ ЗАГАДКОЙ"
+      },
+      "4": {
+        title: "Послание № 4",
+        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ЧЕТВЁРТОЙ ЗАГАДКОЙ"
+      },
+      "5": {
+        title: "Послание № 5",
+        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ПЯТОЙ ЗАГАДКОЙ"
+      }
+    };
+
+    const id = window.location.hash.slice(1);
+    const page = document.getElementById("page");
+    const heading = document.getElementById("heading");
+    const message = document.getElementById("message");
+    const footer = document.getElementById("footer");
+    const item = QUEST[id];
+
+    if (item) {
+      heading.textContent = item.title;
+      message.textContent = item.text;
+    } else {
+      page.classList.add("error");
+      heading.textContent = "Сообщение не найдено";
+      message.textContent =
+        "Проверьте QR-код или адрес ссылки. У каждого послания в конце адреса должна быть цифра от 1 до 5.";
+      footer.textContent = "Доступ отсутствует";
+    }
+  </script>
+</body>
+</html>
