@@ -6,111 +6,32 @@
   <meta name="theme-color" content="#111111">
   <title>Секретное послание</title>
   <style>
-    :root {
-      color-scheme: dark;
-      --background: #111;
-      --text: #eee;
-      --muted: #a6a6a6;
-      --accent: #c8b98b;
-      --line: #48443a;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      min-height: 100%;
-      background: var(--background);
-    }
-
+    :root { color-scheme: dark; --background:#111; --text:#eee; --muted:#a6a6a6; --accent:#c8b98b; --line:#48443a; }
+    * { box-sizing:border-box; }
+    html { min-height:100%; background:var(--background); }
     body {
-      margin: 0;
-      min-height: 100vh;
-      min-height: 100svh;
-      padding:
-        max(18px, env(safe-area-inset-top))
-        16px
-        max(18px, env(safe-area-inset-bottom));
-      display: flex;
-      background:
-        radial-gradient(ellipse at center, #25231f 0%, var(--background) 72%);
-      color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
+      margin:0; min-height:100vh; min-height:100svh;
+      padding:max(18px,env(safe-area-inset-top)) 16px max(18px,env(safe-area-inset-bottom));
+      display:flex; background:radial-gradient(ellipse at center,#25231f 0%,var(--background) 72%);
+      color:var(--text); font-family:Georgia,"Times New Roman",serif;
     }
-
     main {
-      width: 100%;
-      max-width: 560px;
-      min-height: calc(100vh - 36px);
-      min-height: calc(100svh - max(36px, env(safe-area-inset-top) + env(safe-area-inset-bottom)));
-      margin: auto;
-      padding: clamp(28px, 7vh, 64px) clamp(20px, 6vw, 34px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      border: 1px solid var(--line);
-      background: rgba(20, 20, 20, 0.94);
-      box-shadow: 0 12px 45px rgba(0, 0, 0, .35);
-      text-align: center;
+      width:100%; max-width:560px;
+      min-height:calc(100vh - 36px);
+      min-height:calc(100svh - max(36px,env(safe-area-inset-top) + env(safe-area-inset-bottom)));
+      margin:auto; padding:clamp(28px,7vh,64px) clamp(20px,6vw,34px);
+      display:flex; flex-direction:column; justify-content:center;
+      border:1px solid var(--line); background:rgba(20,20,20,.94);
+      box-shadow:0 12px 45px rgba(0,0,0,.35); text-align:center;
     }
-
-    .classification {
-      margin: 0 0 clamp(20px, 5vh, 38px);
-      color: var(--accent);
-      font: 11px/1.6 Arial, sans-serif;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
-
-    .divider {
-      flex: 0 0 1px;
-      width: 54px;
-      margin: clamp(18px, 4vh, 30px) auto;
-      background: var(--accent);
-      opacity: .75;
-    }
-
-    h1 {
-      margin: 0;
-      color: var(--accent);
-      font-size: clamp(24px, 6vw, 32px);
-      font-weight: normal;
-      line-height: 1.3;
-    }
-
-    .message {
-      margin: clamp(20px, 5vh, 34px) 0;
-      font-size: clamp(19px, 5vw, 23px);
-      line-height: 1.7;
-      white-space: pre-line;
-      overflow-wrap: anywhere;
-    }
-
-    .footer {
-      margin: clamp(18px, 4vh, 30px) 0 0;
-      color: var(--muted);
-      font: 10px/1.6 Arial, sans-serif;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .error h1 { color: #ddd; }
-    .error .message { color: var(--muted); font-size: 17px; }
-
-    @media (min-width: 700px) {
-      body { justify-content: center; }
-      main {
-        min-height: min(760px, calc(100vh - 48px));
-        border-radius: 2px;
-      }
-    }
-
-    @media (max-height: 600px) {
-      main { padding-top: 20px; padding-bottom: 20px; }
-      .classification { margin-bottom: 12px; }
-      .divider { margin-top: 12px; margin-bottom: 12px; }
-      .message { margin-top: 14px; margin-bottom: 14px; line-height: 1.5; }
-      .footer { margin-top: 12px; }
-    }
+    .classification { margin:0 0 clamp(20px,5vh,38px); color:var(--accent); font:11px/1.6 Arial,sans-serif; letter-spacing:.22em; text-transform:uppercase; }
+    .divider { flex:0 0 1px; width:54px; margin:clamp(18px,4vh,30px) auto; background:var(--accent); opacity:.75; }
+    h1 { margin:0; color:var(--accent); font-size:clamp(24px,6vw,32px); font-weight:normal; line-height:1.3; }
+    .message { margin:clamp(20px,5vh,34px) 0; font-size:clamp(19px,5vw,23px); line-height:1.7; white-space:pre-line; overflow-wrap:anywhere; }
+    .footer { margin:clamp(18px,4vh,30px) 0 0; color:var(--muted); font:10px/1.6 Arial,sans-serif; letter-spacing:.16em; text-transform:uppercase; }
+    .error h1 { color:#ddd; } .error .message { color:var(--muted); font-size:17px; }
+    @media(min-width:700px) { main { min-height:min(760px,calc(100vh - 48px)); } }
+    @media(max-height:600px) { main { padding-top:20px; padding-bottom:20px; } .classification { margin-bottom:12px; } .divider { margin-top:12px; margin-bottom:12px; } .message { margin-top:14px; margin-bottom:14px; line-height:1.5; } .footer { margin-top:12px; } }
   </style>
 </head>
 <body>
@@ -122,37 +43,58 @@
     <div class="divider"></div>
     <p class="footer" id="footer">Материал предназначен только для адресата</p>
   </main>
-
   <script>
-    /*
-      КАК МЕНЯТЬ ЗАГАДКИ:
-      1. Замените текст в title и text ниже.
-      2. Не меняйте номера 1–5: они используются в QR-ссылках.
-      3. Перенос строки внутри текста обозначается как \n.
-    */
-
+    // Тексты всех посланий. Номера 0–11 соответствуют QR-ссылкам #0–#11.
     const QUEST = {
-      "1": {
-        title: "Послание № 1",
-        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ПЕРВОЙ ЗАГАДКОЙ"
-      },
-      "2": {
-        title: "Послание № 2",
-        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ВТОРОЙ ЗАГАДКОЙ"
-      },
-      "3": {
-        title: "Послание № 3",
-        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ТРЕТЬЕЙ ЗАГАДКОЙ"
-      },
-      "4": {
-        title: "Послание № 4",
-        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ЧЕТВЁРТОЙ ЗАГАДКОЙ"
-      },
-      "5": {
-        title: "Послание № 5",
-        text: "ЗАМЕНИТЕ ЭТОТ ТЕКСТ ПЯТОЙ ЗАГАДКОЙ"
-      }
-    };
+  "0": {
+    "title": "Начало операции",
+    "text": "ОБЪЕКТ ПОЛУЧИЛ ДОСТУП К ЗАДАНИЮ.\n\nС этого момента случайностей больше не существует. Каждый предмет может оказаться уликой, каждое совпадение — частью плана, а привычные вещи способны скрывать то, чего ты никогда раньше не замечал.\n\nТвоя задача — найти секретный груз. Но путь к нему намеренно скрыт. Придётся обращать внимание на детали, искать связи между, казалось бы, несвязанными вещами и доверять собственной логике.\n\nПервый след спрятан там, где у праздников остаются свои маленькие деревянные трофеи. Они уже не пригодятся для тостов, но всё ещё помнят, чем те закончились.\n\nУдачи. Она тебе понадобится."
+  },
+  "1": {
+    "title": "Послание № 1",
+    "text": "У каждой вещи есть своё назначение.\n\nОдни хранят то, что не должно быть забыто.\nДругие отсчитывают время, пока оно ускользает.\nА третьи меняют состояние всего, что оказывается внутри.\n\nНайди место, где холодное проходит через невидимую границу и выходит горячим. Оно прячется на виду, но именно там начинается это превращение."
+  },
+  "2": {
+    "title": "Послание № 2",
+    "text": "Следующая цель связана с равновесием.\n\nЗдесь не сравнивают две чаши и не ищут перевес. На них встают, чтобы узнать то, что обычно предпочитают не замечать.\n\nНебольшое изменение — и цифры уже другие.\n\nНо искать нужно не там, где появляется результат, а под тем, что его показывает."
+  },
+  "3": {
+    "title": "Послание № 3",
+    "text": "Время — странная, неуловимая вещь.\n\nЕго нельзя остановить, но можно измерить.\nНельзя удержать в ладонях, но можно безвозвратно потратить.\nОно течёт сквозь пальцы, стирает следы и порой меняет вещи.\n\nИщи там, где невидимое тепло работает молча и терпеливо:\nдень за днём вытягивает из вещей их тяжесть,\nпока влажное не становится почти невесомым."
+  },
+  "4": {
+    "title": "Послание № 4",
+    "text": "Немного географии.\n\nЕсть места, куда поднимаются, чтобы оказаться ближе к свету. Есть места, куда спускаются, не зная, что прячется внизу. А есть уголки, мимо которых проходят каждый день, даже не подозревая, какие тайны скрываются в их тени.\n\nСледующая подсказка ждёт там, где вода смывает следы прошедшего дня, а стены хранят молчаливые воспоминания каждого утра и каждого вечера. Но не ищи её на виду. Загляни туда, куда обычно не смотрят, — за пределы привычного взгляда, в тёмное пространство, где случайно найденное редко бывает случайностью."
+  },
+  "5": {
+    "title": "Послание № 5",
+    "text": "Тишина — это отсутствие звука.\nНо тишина не всегда означает пустоту.\n\nИногда ей нужно лишь одно движение, поворот, чтобы снова нарушить собственное молчание. То, что когда-то исчезло в воздухе, может вернуться — не потому, что его помнят, а потому, что оно оставило после себя след.\n\nИщи там, где прошлое не записано словами и не хранится в памяти, но всё ещё способно заговорить, если к нему прикоснуться."
+  },
+  "6": {
+    "title": "Послание № 6",
+    "text": "У каждой вещи есть своя противоположность.\n\nЧистое и грязное.\nПолное и пустое.\nНужное и ненужное.\n\nВсё, от чего отказываются, куда-то исчезает. Но ничто не исчезает бесследно.\n\nСледующий след находится рядом с тем, что регулярно принимает вторую категорию."
+  },
+  "7": {
+    "title": "Послание № 7",
+    "text": "Некоторые моменты хочется сохранить навсегда.\n\nОни застывают во времени, не меняются, не стареют, но рассказывают истории.\n\nПосмотри на то, что хранит чей-то взгляд в прошлом.\nНо не на саму историю — загляни за её границы."
+  },
+  "8": {
+    "title": "Послание № 8",
+    "text": "У этого устройства есть удивительная способность.\n\nОно питается тем, что другие оставляют после себя.\nОно не различает важное и бесполезное, ценное и ненужное — всё исчезает внутри него одинаково.\n\nЧем больше вокруг беспорядка, тем больше у него работы.\n\nГде следующий след?"
+  },
+  "9": {
+    "title": "Послание № 9",
+    "text": "Ты уже близко.\n\nНо прежде чем получить награду, вспомни одну простую истину:\n\nЛучшие истории часто начинаются с вопроса.\nЛучшие вечера — с правильной компании.\nА некоторые проблемы решаются одним хорошим напитком.\n\nИщи там, где живёт настроение пятничного вечера."
+  },
+  "10": {
+    "title": "Последний рубеж",
+    "text": "Перед тобой подсказка:\n\nБотинки\n\nНо это не ответ. Это направление мысли.\n\nПодумай:\nЧто объединяет переезд, посылку, конфеты и пару обуви?\n\nДля каждого из них нужна оболочка, которая скрывает и защищает содержимое, пока не наступает момент открыть её. После этого остаётся только пустая форма — свидетельство того, что тайна раскрыта.\n\nТам, где заканчивается путь, начинается награда.\n\nСекретный груз ждёт."
+  },
+  "11": {
+    "title": "Операция завершена",
+    "text": "ОПЕРАЦИЯ ЗАВЕРШЕНА.\n\nВсе контрольные точки пройдены.\nВсе испытания успешно преодолены.\n\nСекретный груз обнаружен.\n\nПоздравляем! Ты официально доказал, что способен найти что угодно, даже если тебе не говорят, где искать.\n\nНаграда твоя.\n\nP.S. Надеюсь, оно того стоило ❤️"
+  }
+};
 
     const id = window.location.hash.slice(1);
     const page = document.getElementById("page");
@@ -167,8 +109,7 @@
     } else {
       page.classList.add("error");
       heading.textContent = "Сообщение не найдено";
-      message.textContent =
-        "Проверьте QR-код или адрес ссылки. В конце адреса должна быть цифра от 1 до 5.";
+      message.textContent = "Проверьте QR-код или адрес ссылки. В конце адреса должна быть цифра от 0 до 11.";
       footer.textContent = "Доступ отсутствует";
     }
   </script>
