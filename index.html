@@ -105,7 +105,19 @@
     const message = document.getElementById("message");
     const footer = document.getElementById("footer");
 
+    function scrollToTop() {
+      // Не позволяем браузеру восстанавливать прежнюю позицию прокрутки.
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
     function showMessage() {
+      scrollToTop();
       const id = window.location.hash.slice(1);
       const item = QUEST[id];
 
@@ -126,6 +138,8 @@
     // Обновляем послание, даже если браузер уже открыт и меняется только #номер.
     showMessage();
     window.addEventListener("hashchange", showMessage);
+    // На случай возврата страницы из кеша браузера (например, Safari на iPhone).
+    window.addEventListener("pageshow", scrollToTop);
   </script>
 </body>
 </html>
